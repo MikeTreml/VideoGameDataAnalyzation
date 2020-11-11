@@ -16,6 +16,9 @@ def create_app():
         pass
 
     from . import sample
+
+    from . import api_request
+    api_request.run_request()
     app.register_blueprint(sample.bp)
     # app.add_url_rule('/', endpoint='index')
 
