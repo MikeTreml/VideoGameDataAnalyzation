@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, redirect, flash, render_template, url_for, Blueprint
-
+from . import api_request
 bp = Blueprint('sample', __name__)
 
 
@@ -10,10 +10,9 @@ def test():
 
 @bp.route('/')
 def index():
+    api_request.run_request()
 
-    message = "This text is coming from the 'sample.py' module, not the html file!"
-    phrase = "Python is cool!"
-    return render_template('sample/index.html', message=message, word=phrase)
+    return render_template('sample/index.html', message=api_request.run_request())
 
 
 @bp.route('/postform', methods=('GET', 'POST'))
