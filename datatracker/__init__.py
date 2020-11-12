@@ -15,10 +15,10 @@ def create_app():
     except OSError:
         pass
 
-    from . import sample
-
     from . import api_request
     api_request.run_request()
+
+    from . import sample
     app.register_blueprint(sample.bp)
     # app.add_url_rule('/', endpoint='index')
 
