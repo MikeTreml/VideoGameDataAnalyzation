@@ -15,5 +15,5 @@ class VideoGame:
 
         @staticmethod
         def video_game_decoder(obj):
-            return VideoGame(obj['id'], obj['rank'], obj['name'], obj['platform'], obj['year'], obj['genre'], obj['publisher'], obj['naSales'], obj['euSales'], obj['jpSales'], obj['otherSales'], obj['globalSales'])
+            return VideoGame(obj['_id'], obj['rank'], obj['name'], obj['platform'], obj['year'], obj['genre'], obj['publisher'], obj['naSales'], obj['euSales'], obj['jpSales'], obj['otherSales'], obj['globalSales'])
 
