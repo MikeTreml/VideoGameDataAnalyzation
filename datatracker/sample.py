@@ -7,12 +7,17 @@ bp = Blueprint('sample', __name__)
 def test():
     return "All good!"
 
+@bp.route('/yearly')
+def yearly():
+    api_request.run_request()
+
+    return render_template('sample/yearly.html')
 
 @bp.route('/')
 def index():
     api_request.run_request()
 
-    return render_template('sample/index.html', message=api_request.run_request())
+    return render_template('sample/index.html')
 
 
 @bp.route('/postform', methods=('GET', 'POST'))
