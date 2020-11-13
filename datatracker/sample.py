@@ -8,13 +8,13 @@ def test():
 
 @bp.route('/yearly')
 def yearly():
-    api_request.run_request()
+    api_request.request_default()
 
     return render_template('sample/yearly.html')
 
 @bp.route('/')
 def index():
-    api_request.run_request()
+    api_request.request_default()
 
     return render_template('sample/index.html')
 
@@ -23,7 +23,7 @@ def index():
 def other_example():
     if request.method == 'POST':
         requeststring = request.form['title']
-        result = api_request.run_requests(requeststring)
+        result = api_request.request_games_year(requeststring)
         error = None
         if error is not None:
             flash(error)

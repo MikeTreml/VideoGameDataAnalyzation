@@ -16,7 +16,7 @@ def create_app():
         pass
 
     from . import api_request
-    api_request.run_request()
+    api_request.request_default()
 
     from . import sample
     app.register_blueprint(sample.bp)

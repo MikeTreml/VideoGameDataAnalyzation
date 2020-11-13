@@ -27,8 +27,7 @@
   		labels.push('{{ item.name }}');
   		data.push({{ item.globalSales }});
 	{% endfor %}
-	alert(labels);
-	alert(data);
+
     let ctx = document.getElementById('myChart').getContext('2d');
     let myChart = new Chart(ctx,{
         type: 'bar',
