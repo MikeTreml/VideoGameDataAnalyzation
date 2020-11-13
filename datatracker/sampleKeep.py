@@ -2,7 +2,7 @@
 from flask import Flask, jsonify, request, redirect, flash, render_template, url_for, Blueprint
 
 
-bp = Blueprint('sample', __name__)
+bp = Blueprint('video_game', __name__)
 
 
 @bp.route('/test')
@@ -13,9 +13,9 @@ def test():
 @bp.route('/')
 def index():
 
-    message = "This text is coming from the 'sample.py' module, not the html file!"
+    message = "This text is coming from the 'video_game.py' module, not the html file!"
     phrase = "Python is cool!"
-    return render_template('sample/index.html', message=message, word=phrase)
+    return render_template('video_game/index.html', message=message, word=phrase)
 
 
 @bp.route('/postform', methods=('GET', 'POST'))
@@ -30,10 +30,10 @@ def other_example():
         if error is not None:
             flash(error)
         elif request.form['title'] == "go home":
-            return redirect(url_for('sample.index'))
+            return redirect(url_for('video_game.index'))
         else:
-            return render_template('sample/postform.html', page_title=page_title)
+            return render_template('video_game/postform.html', page_title=page_title)
 
     else:
-        return render_template('sample/postform.html', page_title="PostForm from Module Function")
+        return render_template('video_game/postform.html', page_title="PostForm from Module Function")
 

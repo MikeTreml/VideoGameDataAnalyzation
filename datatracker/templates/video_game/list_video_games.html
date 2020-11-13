@@ -8,7 +8,7 @@
 <table><tbody id="gameData"><tr><th>Title</th><th hidden>Director</th><th>Genre</th><th hidden>ImageURL</th><th hidden>Summary</th><th hidden>Year</th><th hidden>Actors</th><th hidden>Rating</th><th hidden>Edit</th><th hidden>Delete</th></tr>
     
 {% for item in table_data %}
-<tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="title-data">${data[i].title}</td><td class="director-data" hidden>${data[i].director}</td><td class="genre-data">${data[i].genre}</td><td class="imageurl-data" hidden>${data[i].imageURL}</td><td class="summary-data" hidden>${data[i].summary}</td><td class="year-data" hidden>${data[i].year}</td><td class="actors-data" hidden>${data[i].actors}</td><td class="rating-data" hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})"><a href="#popup" text-decoration="none">Edit</a></button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>
+<tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="name-data">{{ item.name }}</td><td class="director-data" hidden>${data[i].director}</td><td class="genre-data">${data[i].genre}</td><td class="imageurl-data" hidden>${data[i].imageURL}</td><td class="summary-data" hidden>${data[i].summary}</td><td class="year-data" hidden>${data[i].year}</td><td class="actors-data" hidden>${data[i].actors}</td><td class="rating-data" hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})"><a href="#popup" text-decoration="none">Edit</a></button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>
  {% endfor %}
   </tbody></table>
 

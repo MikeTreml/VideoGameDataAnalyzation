@@ -1,50 +1,93 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<h1 style="text-align: center">{% block title %}  {% endblock %}</h1>
-{% endblock %}
-
-
-
 {% block content %}
-<canvas id="myChart" width="100" height="100"></canvas>
-{% for item in table_data %}
-  <p>{{ item.rank }} - {{ item.name }} - {{ item.platform }}- {{ item.year }}- {{ item.genre }}- {{ item.publisher }}- {{ item.globalSales }}</p>
-{% endfor %}
+	<div>
+		<canvas id="canvas"></canvas>
+	</div>
+   <button id="randomizeData">Randomize Data</button>
 
 
-	<form method="post">
-		<label for="title">Enter a Title</label>
-		<input name="title" id="title" value="{{ request.form['title'] }}" required>
-		<input type="submit" value="Submit">
-	</form>
+
 
 <script>
-
-	let labels = [];
-	let data = [];
+let labels = ["na","eu","jp","other"];
+let data_global = [5,6,7,8];
+let data_na = [5,6,7,8];
+let data_eu = [5,6,7,8];
+let data_other = [5,6,7,8];
+let data_jp = [5,6,7,8];
 	{% for item in table_data %}
   		labels.push('{{ item.name }}');
-  		data.push({{ item.globalSales }});
+  		data_global.push({{ item.globalSales }});
+  		data_na.push({{ item.naSales }});
+  		data_eu.push({{ item.euSales }});
+  		data_jp.push({{ item.jpSales }});
+  		data_other.push({{ item.otherSales }});
 	{% endfor %}
 
-    let ctx = document.getElementById('myChart').getContext('2d');
-    let myChart = new Chart(ctx,{
-        type: 'bar',
-        data: {
-         labels: labels,
-         datasets: [{
-            backgroundColor: 'rgb(129, 198, 2228)',
-            borderColor: 'rgb(0, 150, 215)',
-            data: data
-         }]
-      },
-      options: {
-         responsive: 'true',
-      }
-    });
-    myChart.canvas.parentNode.style.height = '400px';
-	myChart.canvas.parentNode.style.width = '400px';
+   
+    
+		var barChartData = {
+			labels: labels,
+			datasets: [{
+				label: 'NA',
+				backgroundColor: window.chartColors.red,
+				data: data_na
+			}, {
+				label: 'EU',
+				backgroundColor: window.chartColors.blue,
+				data: data_eu
+			}, {
+				label: 'JP',
+				backgroundColor: window.chartColors.blue,
+				data: data_jp
+			},{
+				label: 'Other',
+				backgroundColor: window.chartColors.green,
+				data: data_other
+			}]
+
+		};
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					title: {
+						display: true,
+						text: 'Chart.js Bar Chart - Stacked'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+					responsive: true,
+					scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+				}
+			});
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			barChartData.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+			window.myBar.update();
+		});
+	
+
+
+
+
 </script>
 {% endblock %}
 
