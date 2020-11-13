@@ -23,7 +23,7 @@ def index():
 def other_example():
     if request.method == 'POST':
         requeststring = request.form['title']
-        result = api_request.request_games_year(requeststring)
+        result = api_request.request_default()
         error = None
         if error is not None:
             flash(error)
