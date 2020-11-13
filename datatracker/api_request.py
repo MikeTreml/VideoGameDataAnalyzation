@@ -1,25 +1,49 @@
 import requests
 import json
 from types import SimpleNamespace
+
 here = 'outside'
+
+
 # api request for whole json get. list wist dot notation.
+
+
+# def giving a range from 2013 to 2017
 def run_request():
     response = requests.get('https://api.dccresource.com/api/games')
     jsonobject = response.text
     fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
-    result = list(filter(lambda x: str(x.year) == '1996', fulldata))
+    result = list(filter(lambda x: str(x.year) == '2013' or
+                                   str(x.year) == '2014' or
+                                   str(x.year) == '2015' or
+                                   str(x.year) == '2016' or
+                                   str(x.year) == '2017', fulldata))
     return result
-   # return json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
 
+
+# return json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
+
+# select year from drop down
+def run_requests(year):
+    response = requests.get('https://api.dccresource.com/api/games')
+    jsonobject = response.text
+    fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
+    result = list(filter(lambda x: str(x.year) == year, fulldata))
+    return result
+
+
+# search function by string
 def search_request(searchstring):
     response = requests.get('https://api.dccresource.com/api/games')
     jsonobject = response.text
     fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
     result = list(filter(lambda x: searchstring.lower() in x.name.lower(), fulldata))
     return result
-    #for n in result:
-        #print(n.name)
+    # for n in result:
+    # print(n.name)
 
+
+# select year to lst the consoles that sold the number of games that year
 def run_request_console(year):
     response = requests.get('https://api.dccresource.com/api/games')
     jsonobject = response.text
@@ -67,6 +91,6 @@ def run_request_console(year):
 
     for console, sales in consoledict.items():
         for key in sales:
-            if sales["globalSales"] >0:
+            if sales["globalSales"] > 0:
                 result[console] = sales
     return result
