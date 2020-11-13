@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 style="text-align: center">{% block title %}  {% endblock %}</h1>
+{% endblock %}
+
+
+
+{% block content %}
+<canvas id="myChart" width="100" height="100"></canvas>
+{% for item in table_data %}
+  <p>{{ item.rank }} - {{ item.name }} - {{ item.platform }}- {{ item.year }}- {{ item.genre }}- {{ item.publisher }}- {{ item.globalSales }}</p>
+{% endfor %}
+
+
+	<form method="post">
+		<label for="title">Enter a Title</label>
+		<input name="title" id="title" value="{{ request.form['title'] }}" required>
+		<input type="submit" value="Submit">
+	</form>
+
+<script>
+
+	let labels = [];
+	let data = [];
+	{% for item in table_data %}
+  		labels.push('{{ item.name }}');
+  		data.push({{ item.globalSales }});
+	{% endfor %}
+
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx,{
+        type: 'bar',
+        data: {
+         labels: labels,
+         datasets: [{
+            backgroundColor: 'rgb(129, 198, 2228)',
+            borderColor: 'rgb(0, 150, 215)',
+            data: data
+         }]
+      },
+      options: {
+         responsive: 'true',
+      }
+    });
+    myChart.canvas.parentNode.style.height = '400px';
+	myChart.canvas.parentNode.style.width = '400px';
+</script>
+{% endblock %}
+
