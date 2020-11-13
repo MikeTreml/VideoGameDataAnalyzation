@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, redirect, flash, render_template, url_for, Blueprint
+from flask import request, redirect, flash, render_template, url_for, Blueprint
 
 bp = Blueprint('sample', __name__)
 
