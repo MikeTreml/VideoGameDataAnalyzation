@@ -8,9 +8,23 @@ def test():
 
 @bp.route('/yearly')
 def yearly():
+    if request.method == 'POST':
+        year = request.form['title']
+        error = None
 
+        if error is not None:
+            flash(error)
+        elif request.form['title'] == "go home":
+            return redirect(url_for('video_game.index'))
+        else:
+            result = api_request.request_games_year(year)
+            chart = api_request.proccess_filter(result)
+            return render_template('video_game/yearly.html', table_data=result, chart_data=chart)
 
-    return render_template('video_game/yearly.html')
+    else:
+        result = api_request.request_games_year(1996)
+        chart = api_request.proccess_filter(result)
+        return render_template('video_game/yearly.html', table_data=result, chart_data=chart)
 
 @bp.route('/')
 def index():
