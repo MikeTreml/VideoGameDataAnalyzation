@@ -132,3 +132,4 @@ dmypy.json
 .idea/
 .fake
 .ionide
+node_modules

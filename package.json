@@ -1,0 +1,28 @@
+{
+  "name": "VideoGameData",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeTreml/VideoGameDataAnalyzation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeTreml/VideoGameDataAnalyzation/issues"
+  },
+  "homepage": "https://github.com/MikeTreml/VideoGameDataAnalyzation#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "concat": "^1.0.3",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.7",
+    "postcss-cli": "^8.2.0"
+  }
+}
