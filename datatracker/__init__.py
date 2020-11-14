@@ -15,8 +15,8 @@ def create_app():
     except OSError:
         pass
 
-    from . import api_request
-    api_request.request_default()
+    #from . import api_request
+    #api_request.request_default()
 
     from . import video_game
     app.register_blueprint(video_game.bp)

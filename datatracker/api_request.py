@@ -42,7 +42,8 @@ consoledict = {"2600": {"naSales": 0, "euSales": 0, "jpSales": 0, "otherSales": 
 def request_default():
     response = requests.get('https://api.dccresource.com/api/games')
     jsonobject = response.text
-    result = {}
+    results = []
+    result = []
     fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
     resultyear = list(filter(lambda x: str(x.year) == '2013' or
                                    str(x.year) == '2014' or
@@ -55,12 +56,13 @@ def request_default():
         consoledict[item.platform]["jpSales"] += item.jpSales
         consoledict[item.platform]["otherSales"] += item.otherSales
         consoledict[item.platform]["globalSales"] += item.globalSales
-    for console, sales in consoledict.items():
-        for key in sales:
-            if sales["globalSales"] > 0:
-                result[console] = sales
 
-    return result
+    for console, sales in consoledict.items():
+            if sales["globalSales"] > 0:
+                result = [console, sales["naSales"], sales["euSales"], sales["jpSales"], sales["otherSales"], sales["globalSales"]]
+                results.append(result)
+
+    return results
 
 # select year from drop down
 def request_games_year(year):
