@@ -8,29 +8,29 @@ def test():
 
 @bp.route('/yearly')
 def yearly():
-    api_request.request_default()
+
 
     return render_template('video_game/yearly.html')
 
 @bp.route('/')
 def index():
-    api_request.request_default()
+
 
     return render_template('video_game/index.html')
 
 
-@bp.route('/postform', methods=('GET', 'POST'))
-def other_example():
+@bp.route('/chartmain')
+def chart_main():
     result = api_request.request_default()
-    if request.method == 'POST':
-        requeststring = request.form['title']
+    return render_template('video_game/chart_main.html', table_data=result)
 
-        error = None
-        if error is not None:
-            flash(error)
-        elif request.form['title'] == "go home":
-            return redirect(url_for('video_game.index'))
-        else:
-            return render_template('video_game/postform.html', table_data=result)
-    return render_template('video_game/postform.html', table_data=result)
+@bp.route('/chartdetails')
+def chart_details():
+    result = api_request.request_console_game("LEGO Marvel Super Heroes")
+    return render_template('video_game/chart_detailsview.html', table_data=result)
+
+@bp.route('/search')
+def search():
+    result = api_request.request_search_string("Super")
+    return render_template('video_game/search.html', table_data=result)
 
