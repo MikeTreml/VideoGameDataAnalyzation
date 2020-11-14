@@ -55,7 +55,7 @@ def request_games_year(year):
     response = api_request
     jsonobject = response.text
     fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
-    result = list(filter(lambda x: str(x.year) == year, fulldata))
+    result = list(filter(lambda x: str(x.year) == str(year), fulldata))
 
     return result
 
