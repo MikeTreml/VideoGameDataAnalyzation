@@ -1,0 +1,10 @@
+
+
+
+{% block content %}
+<table><tbody id="gameData"><tr><th>Title</th><th >Rank</th><th>Platform</th><th >Year</th><th hidden>genre</th><th hidden>Publisher</th><th hidden>NA Sales</th><th hidden>EU Sales</th><th hidden>JP Sales</th><th hidden>Other Sales</th><th hidden>Global Sales</th>
+{% for item in table_data %}
+<tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="name-data">{{ item.name }}</td><td class="rank-data" >{{ item.rank }}</td><td class="platform-data">{{ item.platform }}</td><td class="year-data" >{{ item.year }}</td><td class="genre-data" hidden>{{ item.genre }}</td><td class="publisher-data" hidden>{{ item.publisher }}</td><td class="nasales-data" hidden>{{ item.naSales }}</td><td class="eusales-data" hidden>{{ item.euSales }}</td><td class="jpsales-data" hidden>{{ item.jpSales }}</td><td class="othersales-data" hidden>{{ item.otherSales }}</td><td class="globalsales-data" hidden>{{ item.globalSales }}</td></tr>
+{% endfor %}
+  </tbody></table>
+{% endblock %}

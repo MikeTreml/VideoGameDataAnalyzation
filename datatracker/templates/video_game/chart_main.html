@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div>
+		<canvas id="canvas"></canvas>
+	</div>
+
+<script>
+let labels = [];
+let data_global = [];
+let data_na = [];
+let data_eu = [];
+let data_other = [];
+let data_jp = [];
+{% for console in table_data %}
+	labels.push('{{ console[0] }}');
+	data_global.push({{ console[5] }});
+	data_na.push({{ console[1] }});
+	data_eu.push({{ console[2] }});
+	data_jp.push({{ console[3] }});
+	data_other.push({{ console[4] }});
+{% endfor %}
+
+var barChartData = {
+	labels: labels,
+	datasets: [{
+		label: 'North America',
+		backgroundColor: window.chartColors.red,
+		data: data_na
+	}, {
+		label: 'Europe',
+		backgroundColor: window.chartColors.blue,
+		data: data_eu
+	}, {
+		label: 'Japan',
+		backgroundColor: window.chartColors.orange,
+		data: data_jp
+	},{
+		label: 'Other',
+		backgroundColor: window.chartColors.green,
+		data: data_other
+	}]
+};
+		window.onload = function() {
+
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: barChartData,
+				options: {
+					title: {
+						display: true,
+						text: 'Video Games sold globally since 2013'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+					responsive: true,
+					scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+				}
+			});
+		};
+</script>
+{% endblock %}
+
