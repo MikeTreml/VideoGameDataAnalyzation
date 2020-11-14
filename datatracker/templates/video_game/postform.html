@@ -1,62 +1,62 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
 	<div>
 		<canvas id="canvas"></canvas>
 	</div>
-   <button id="randomizeData">Randomize Data</button>
+
 
 
 
 
 <script>
-let labels = ["na","eu","jp","other"];
-let data_global = [5,6,7,8];
-let data_na = [5,6,7,8];
-let data_eu = [5,6,7,8];
-let data_other = [5,6,7,8];
-let data_jp = [5,6,7,8];
-	{% for item in table_data %}
-  		labels.push('{{ item.name }}');
-  		data_global.push({{ item.globalSales }});
-  		data_na.push({{ item.naSales }});
-  		data_eu.push({{ item.euSales }});
-  		data_jp.push({{ item.jpSales }});
-  		data_other.push({{ item.otherSales }});
-	{% endfor %}
+let labels = [];
+let data_global = [];
+let data_na = [];
+let data_eu = [];
+let data_other = [];
+let data_jp = [];
+{% for console in table_data %}
+	labels.push('{{ console[0] }}');
+	data_global.push({{ console[5] }});
+	data_na.push({{ console[1] }});
+	data_eu.push({{ console[2] }});
+	data_jp.push({{ console[3] }});
+	data_other.push({{ console[4] }});
+{% endfor %}
 
-   
-    
-		var barChartData = {
-			labels: labels,
-			datasets: [{
-				label: 'NA',
-				backgroundColor: window.chartColors.red,
-				data: data_na
-			}, {
-				label: 'EU',
-				backgroundColor: window.chartColors.blue,
-				data: data_eu
-			}, {
-				label: 'JP',
-				backgroundColor: window.chartColors.blue,
-				data: data_jp
-			},{
-				label: 'Other',
-				backgroundColor: window.chartColors.green,
-				data: data_other
-			}]
-
-		};
+var barChartData = {
+	labels: labels,
+	datasets: [{
+		label: 'North America',
+		backgroundColor: window.chartColors.red,
+		data: data_na
+	}, {
+		label: 'Europe',
+		backgroundColor: window.chartColors.blue,
+		data: data_eu
+	}, {
+		label: 'Japan',
+		backgroundColor: window.chartColors.orange,
+		data: data_jp
+	},{
+		label: 'Other',
+		backgroundColor: window.chartColors.green,
+		data: data_other
+	}]
+};
 		window.onload = function() {
+
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myBar = new Chart(ctx, {
-				type: 'bar',
+				type: 'horizontalBar',
 				data: barChartData,
 				options: {
 					title: {
 						display: true,
-						text: 'Chart.js Bar Chart - Stacked'
+						text: 'Video Games sold globally since 2013'
 					},
 					tooltips: {
 						mode: 'index',
@@ -75,15 +75,7 @@ let data_jp = [5,6,7,8];
 			});
 		};
 
-		document.getElementById('randomizeData').addEventListener('click', function() {
-			barChartData.datasets.forEach(function(dataset) {
-				dataset.data = dataset.data.map(function() {
-					return randomScalingFactor();
-				});
-			});
-			window.myBar.update();
-		});
-	
+
 
 
 
