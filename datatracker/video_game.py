@@ -47,8 +47,13 @@ def chart_details():
     result = api_request.request_console_game("LEGO Marvel Super Heroes")
     return render_template('video_game/chart_detailsview.html', table_data=result)
 
-@bp.route('/search')
-def search():
-    result = api_request.request_search_string("Super")
-    return render_template('video_game/search.html', table_data=result)
 
+@bp.route('/search', methods=('GET', 'POST'))
+def search():
+  if request.method == 'POST':
+    search = request.form['search']
+    result = api_request.request_search_string(search)
+    return render_template('video_game/search.html', table_data=result)
+  else:
+    result = api_request.request_search_string("space")
+    return render_template('video_game/search.html', table_data=result)

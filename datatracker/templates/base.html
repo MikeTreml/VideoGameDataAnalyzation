@@ -14,7 +14,7 @@
 		<header class="header">
 			<img src="../static/assets/logo.png" alt=" logo" class="logo">
 
-			<form action="#" class="search">
+			<form action="/search" value="" class="search">
 				<input type="text" class="search__input" placeholder="Search games">
 				<button class="search__button">
 					<svg class="search__icon">
@@ -27,11 +27,35 @@
 			<nav class="sidebar">
 				<ul class="side-nav">
 					<li class="side-nav__item side-nav__item--active">
-						<a href="#" class="side-nav__link">
+						<a href="/" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href=""></use>
+							</svg>
+							<span>M & P<br>Athenaeum</span>
+						</a>
+					</li>
+					<li class="side-nav__item">
+						<a href="{{ url_for('video_game.top_console') }}" class="side-nav__link">
 							<svg class="side-nav__icon">
 								<use xlink:href="img/sprite.svg#icon-home"></use>
 							</svg>
-							<span>Games</span>
+							<span>Top Consoles</span>
+						</a>
+					</li>
+					<li class="side-nav__item">
+						<a href="{{ url_for('video_game.chart_main') }}" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href=""></use>
+							</svg>
+							<span>Sales Trends</span>
+						</a>
+					</li>
+					<li class="side-nav__item">
+						<a href="{{ url_for('video_game.yearly') }}" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href=""></use>
+							</svg>
+							<span>Yearly Releases</span>
 						</a>
 					</li>
 					<li class="side-nav__item">
@@ -42,34 +66,11 @@
 							<span>Placeholder</span>
 						</a>
 					</li>
-					<li class="side-nav__item">
-						<a href="#" class="side-nav__link">
-							<svg class="side-nav__icon">
-								<use xlink:href=""></use>
-							</svg>
-							<span>Placeholder</span>
-						</a>
-					</li>
-					<li class="side-nav__item">
-						<a href="#" class="side-nav__link">
-							<svg class="side-nav__icon">
-								<use xlink:href=""></use>
-							</svg>
-							<span>Placeholder</span>
-						</a>
-					</li>
-					<li class="side-nav__item">
-						<a href="#" class="side-nav__link">
-							<svg class="side-nav__icon">
-								<use xlink:href=""></use>
-							</svg>
-							<span>Placeholder</span>
-						</a>
-					</li>
+					
 				</ul>
 
 				<div class="legal">
-					&copy; 2020 by M&P while at devCodeCamp. All rights reserved.
+					&copy; 2020 by M&P while attending devCodeCamp.<br>Art by Ashley Browning.<br>All rights reserved.
 				</div>
 			</nav>
 			<main class="game-view">
