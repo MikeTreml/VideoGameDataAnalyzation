@@ -604,12 +604,12 @@ body {
       display: none; } }
 
 .gallery {
-  display: flex; }
-  .gallery__photo {
-    width: 100%; }
-
-.mySlides {
-  display: none; }
+  display: flex;
+  width: 100%; }
+  .gallery__photo--slides {
+    display: none;
+    width: 100%;
+    flex-shrink: 1; }
 
 /* Fading animation */
 .fade {
