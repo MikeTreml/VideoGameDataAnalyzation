@@ -747,6 +747,11 @@ body {
         mask-size: cover;
         background-image: none; } }
 
+.chart-container {
+  position: relative;
+  height: 35vh;
+  width: 75vh; }
+
 .header {
   height: 30rem;
   background-size: cover;
@@ -819,7 +824,7 @@ body {
   box-shadow: var(--shadow-light);
   padding: 3rem;
   flex: 0 0 60%;
-  margin-right: 4.5rem; }
+  margin-right: 3rem; }
   @media only screen and (max-width: 56.25em) {
     .description {
       padding: 2rem;

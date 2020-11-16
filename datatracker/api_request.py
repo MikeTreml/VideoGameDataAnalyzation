@@ -20,7 +20,7 @@ def request_default():
                                    str(x.year) == '2016' or
                                    str(x.year) == '2017', fulldata))
 
-    return proccess_filter(resultyear)
+    return process_filter(resultyear)
 
 # select year from drop down
 def request_games_year(year):
@@ -43,7 +43,7 @@ def request_search_string(searchstring):
         save = partial_token_sort_ratio(searchstring.lower(), x.name.lower() + " " + x.platform.lower() + " " +
                                         str(x.year) + " " + str(x.rank) + " " + x.genre.lower() + " " +
                                         x.publisher.lower(), force_ascii=True, full_process=True)
-        if save >= 60:
+        if save >= 70:
             print(str(save) + " " + x.name + " " + x.platform + " " + str(x.year) + " " + str(
                 x.rank) + " " + x.genre + " " + x.publisher)
             if save >= top:
@@ -60,7 +60,7 @@ def request_console_year(year):
     fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
     resultyear = list(filter(lambda x: str(x.year) == year, fulldata))
 
-    return proccess_filter(resultyear)
+    return process_filter(resultyear)
 
 # for one title shows the number of copies sold per console
 def request_console_game(name):
@@ -69,7 +69,7 @@ def request_console_game(name):
     fulldata = json.loads(jsonobject, object_hook=lambda d: SimpleNamespace(**d))
     resultyear = list(filter(lambda x: str(x.name) == name, fulldata))
 
-    return proccess_filter(resultyear)
+    return process_filter(resultyear)
 
 # displays each years top selling console
 def top_console():
@@ -83,7 +83,7 @@ def top_console():
         resultyear = list(filter(lambda x: x.year == (year + c), fulldata))
         save = 0
         resulttemp = []
-        filtered = proccess_filter(resultyear)
+        filtered = process_filter(resultyear)
         for i in filtered:
             if i[5] > save:
                 resulttemp = i
@@ -94,7 +94,7 @@ def top_console():
         c += 1
     return(results)
 
-def proccess_filter(dict):
+def process_filter(dict):
     results = []
     console_dict = {"2600": {"naSales": 0, "euSales": 0, "jpSales": 0, "otherSales": 0, "globalSales": 0},
                    "3DO": {"naSales": 0, "euSales": 0, "jpSales": 0, "otherSales": 0, "globalSales": 0},

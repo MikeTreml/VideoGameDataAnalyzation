@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-
+{% block header %}
 <form method="post">
     			<label for="search">Enter a Title</label>
     			<input name="search" id="search" value="{{ request.form['search'] }}" required>
     			<input type="submit" value="Submit">
- 			</form>
+			 </form>
+{% endblock %}
 {% block content %}
 <table><tbody id="gameData"><tr><th hidden>ID</th><th>Title</th><th >Rank</th><th>Platform</th><th >Year</th><th hidden>genre</th><th hidden>Publisher</th><th hidden>NA Sales</th><th hidden>EU Sales</th><th hidden>JP Sales</th><th hidden>Other Sales</th><th hidden>Global Sales</th>
 {% for item in table_data %}
