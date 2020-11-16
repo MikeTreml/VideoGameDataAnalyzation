@@ -36,7 +36,7 @@
 					<li class="side-nav__item">
 						<a href="#" class="side-nav__link">
 							<svg class="side-nav__icon">
-								<use xlink:href="img/sprite.svg#icon-aircraft-take-off"></use>
+								<use xlink:href=""></use>
 							</svg>
 							<span>Placeholder</span>
 						</a>
@@ -44,7 +44,7 @@
 					<li class="side-nav__item">
 						<a href="#" class="side-nav__link">
 							<svg class="side-nav__icon">
-								<use xlink:href="img/sprite.svg#icon-key"></use>
+								<use xlink:href=""></use>
 							</svg>
 							<span>Placeholder</span>
 						</a>
@@ -52,7 +52,7 @@
 					<li class="side-nav__item">
 						<a href="#" class="side-nav__link">
 							<svg class="side-nav__icon">
-								<use xlink:href="img/sprite.svg#icon-map"></use>
+								<use xlink:href=""></use>
 							</svg>
 							<span>Placeholder</span>
 						</a>
@@ -84,11 +84,11 @@
 
 				<div class="overview">
 					<h1 class="overview__heading">
-						Game Over(view)
+						{% block header %}Game Over(view){% endblock %}
 					</h1>
 
-					<div class="overview__location">
-						<svg class="overview__icon-location">
+					<div class="overview__stats">
+						<svg class="overview__icon-stats">
 							<use xlink:href="img/sprite.svg#icon-location-pin"></use>
 						</svg>
 						<button class="btn-inline">Details</button>
@@ -102,12 +102,14 @@
 
 				<div class="detail">
 					<div class="description">
+						
 						<p class="paragraph">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis ratione sapiente saepe. Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
 						</p>
 						<p class="paragraph">
 							Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate delectus, inventore iure aliquid aliquam.
 						</p>
+						{% block content %}{% endblock %}
 						<ul class="list">
 							<li class="list__item"></li>
 							<li class="list__item"></li>
@@ -150,9 +152,7 @@
 			</div>
 		</div>
 	</div>
-<header>
-	{% block header %}{% endblock %}
-</header>
-	{% block content %}{% endblock %}
+
+	
 </body>
 </html>
