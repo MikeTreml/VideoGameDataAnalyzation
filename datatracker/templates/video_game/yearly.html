@@ -3,7 +3,9 @@
 {% block header %}
 <h2 class="header-secondary">
 	Top sellers for year
-	<select name="" class="year-selector">
+
+	<form action="/yearly" method="post">
+	<select name="year" id="year" class="year-selector" value="{{ request.form['year'] }}">
 		<option value="2016">2016</option>
 		<option value="2015">2015</option>
 		<option value="2014">2014</option>
@@ -41,14 +43,12 @@
 		<option value="1982">1982</option>
 		<option value="1981">1981</option>
 		<option value="1980">1980</option>
-	</select> 
+	</select>
+		<input type="submit" value="Submit">
+	</form>
 </h2>
 {% endblock %}
-<form method="post">
-		<label for="title">Enter a Title</label>
-		<input name="title" id="title" value="{{ request.form['title'] }}" required>
-		<input type="submit" value="Submit">
-</form>
+
 {% block content %}
 <div>
 		<canvas id="canvas"></canvas>
