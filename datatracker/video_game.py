@@ -32,6 +32,10 @@ def index():
 
     return render_template('video_game/index.html')
 
+@bp.route('/topconsole')
+def top_console():
+    result = api_request.top_console()
+    return render_template('video_game/topconsole.html', table_data=result)
 
 @bp.route('/chartmain')
 def chart_main():
