@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:sass": "node-sass datatracker/static/sass/main.scss datatracker/static/css/style.css -w",
+    "devServer": "live-server",
+    "start": "npm-run-all --parallel devServer watch:sass",
+    "compile:sass": "node-sass datatracker/static/sass/main.scss datatracker/static/css/style.comp.css",
+    "concat:css": "concat -o datatracker/static/css/style.concat.css datatracker/static/css/icon-font.css datatracker/static/css/style.comp.css",
+    "compress:css": "node-sass datatracker/static/css/style.comp.css datatracker/static/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css compress:css"
   },
   "repository": {
     "type": "git",

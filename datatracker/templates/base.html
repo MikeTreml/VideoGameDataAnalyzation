@@ -3,11 +3,95 @@
 <head>
 	<meta charset="UTF-8">
 	<title>{% block title %}{% endblock %}</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 	<script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='utils.js') }}"></script>
 </head>
 <body>
+	<div class="container">
+		<header class="header">
+			<img src="../static/assets/logo.png" alt=" logo" class="logo">
+
+			<form action="#" class="search">
+				<input type="text" class="search__input" placeholder="Search games">
+				<button class="search__button">
+					<svg class="search__icon">
+						<use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+					</svg>
+				</button>
+			</form>
+		</header>
+		<div class="content">
+			<nav class="sidebar">
+				<ul class="side-nav">
+					<li class="side-nav__item side-nav__item--active">
+						<a href="#" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href="img/sprite.svg#icon-home"></use>
+							</svg>
+							<span>Games</span>
+						</a>
+					</li>
+					<li class="side-nav__item">
+						<a href="#" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href="img/sprite.svg#icon-aircraft-take-off"></use>
+							</svg>
+							<span>Placeholder</span>
+						</a>
+					</li>
+					<li class="side-nav__item">
+						<a href="#" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href="img/sprite.svg#icon-key"></use>
+							</svg>
+							<span>Placeholder</span>
+						</a>
+					</li>
+					<li class="side-nav__item">
+						<a href="#" class="side-nav__link">
+							<svg class="side-nav__icon">
+								<use xlink:href="img/sprite.svg#icon-map"></use>
+							</svg>
+							<span>Placeholder</span>
+						</a>
+					</li>
+				</ul>
+
+				<div class="legal">
+					&copy; 2020 by M&P while at devCodeCamp. All rights reserved.
+				</div>
+			</nav>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="base-wrapper">
+		<div class="parallax-container">
+			<div class="wrapper">
+				<img class="background__image" src="../static/assets/background.png">
+				<img class="middle__image" src="../static/assets/midground.png" />
+				<div class="header">
+					<img class="foreground__image" src="../static/assets/mario-jump.png" />
+					<h1 class="header__text-box">Video Game Database</h1>
+					<img class="foreground__image right" src="../static/assets/luigi-jump.png" />
+				</div>
+			</div>
+		</div>
+	</div>
 <header>
 	{% block header %}{% endblock %}
 </header>
