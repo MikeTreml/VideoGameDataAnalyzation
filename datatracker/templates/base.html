@@ -5,6 +5,7 @@
 	<title>{% block title %}{% endblock %}</title>
 	<link rel="stylesheet" href="../static/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+	
 	<script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='utils.js') }}"></script>
 </head>
@@ -66,20 +67,23 @@
 			<main class="game-view">
 				<div class="gallery">
 					<figure class="gallery__item">
-						<img src="../static/assets/game-1.jpg" alt="Photo of game 1" class="gallery__photo">
-					</figure>
+						<img src="../static/assets/game-1.jpg" alt="Photo of game 1" class="gallery__photo mySlides fade">
+						<img src="../static/assets/game-2.jpg" alt="Photo of game 1" class="gallery__photo mySlides fade">
+						<img src="../static/assets/game-3.jpg" alt="Photo of game 1" class="gallery__photo mySlides fade">
 					<figure class="gallery__item">
-						<img src="../static/assets/game-2.jpg" alt="Photo of game 2" class="gallery__photo">
-					</figure>
+						<img src="../static/assets/game-4.jpg" alt="Photo of game 1" class="gallery__photo mySlides2 fade">
+						<img src="../static/assets/game-5.jpg" alt="Photo of game 1" class="gallery__photo mySlides2 fade">
+						<img src="../static/assets/game-6.jpg" alt="Photo of game 1" class="gallery__photo mySlides2 fade">
 					<figure class="gallery__item">
-						<img src="../static/assets/game-3.jpg" alt="Photo of game 3" class="gallery__photo">
-					</figure>
+						<img src="../static/assets/game-7.jpg" alt="Photo of game 1" class="gallery__photo mySlides3 fade">
+						<img src="../static/assets/game-8.jpg" alt="Photo of game 1" class="gallery__photo mySlides3 fade">
+						<img src="../static/assets/game-9.jpg" alt="Photo of game 1" class="gallery__photo mySlides3 fade">
 					<figure class="gallery__item">
-						<img src="../static/assets/game-4.jpg" alt="Photo of game 3" class="gallery__photo">
-					</figure>
-					<figure class="gallery__item">
-						<img src="../static/assets/game-5.jpg" alt="Photo of game 3" class="gallery__photo">
-					</figure>
+						<img src="../static/assets/game-10.jpg" alt="Photo of game 1" class="gallery__photo mySlides4 fade">
+						<img src="../static/assets/game-11.jpg" alt="Photo of game 1" class="gallery__photo mySlides4 fade">
+						<img src="../static/assets/game-12.jpg" alt="Photo of game 1" class="gallery__photo mySlides4 fade">
+						<img src="../static/assets/game-13.jpg" alt="Photo of game 1" class="gallery__photo mySlides4 fade">
+					
 				</div>
 
 				<div class="overview">
@@ -153,6 +157,7 @@
 		</div>
 	</div>
 
-	
+	<script src="../static/script.js"></script>
 </body>
+
 </html>
