@@ -76,7 +76,8 @@ function showSlides2() {
   $( function() {
     $( "#draggable" ).draggable();
 });
-function mOver(obj){  
+function mOver(obj){
+
 	$("#details__title-grid").html($(obj).find('.name-data').text());
 	$("#details__year-grid").html($(obj).find('.year-data').text());
 	$("#details__publisher-grid").html($(obj).find('.publisher-data').text());
@@ -84,7 +85,7 @@ function mOver(obj){
 	$("#details__platform-grid").html($(obj).find('.platform-data').text());
     $("#details__rank-grid").html($(obj).find('.rank-data').text());
     $("#details__globals-grid").html($(obj).find('.globalsales-data').text());
-     $("#details__title-grid").attr("href", "/chartdetails?title="+'.name-data').text());
+    $("#details__title-grid").attr("href", "/chartdetails?name="+$(obj).find('.name-data').text());
 };
 function mOut(obj){
 }
