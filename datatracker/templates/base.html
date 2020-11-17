@@ -14,7 +14,7 @@
 		<header class="header">
 			<img src="../static/assets/logo.png" alt=" logo" class="logo">
 			<form action="/search" value="" class="search">
-				<input name="search" id="search" type="text" class="search" value="{{ 'search' }}" placeholder="Search games">
+				<input name="search" id="search" type="text" class="search__input" value="{{ '' }}" placeholder="Search games">
 				<button class="search__button">
 					<svg class="search__icon">
 						<use xlink:href="static/assets/sprite.svg#icon-magnifying-glass"></use>
@@ -104,7 +104,7 @@
 
 				<div class="overview">
 					<h1 class="overview__heading">
-						{% block header %}Game Over(view){% endblock %}
+						{% block header %}The Anthenaeum{% endblock %}
 					</h1>
 
 					<div class="overview__stats">
@@ -165,7 +165,6 @@
 				<div class="header">
 					<img class="foreground__image" src="../static/assets/mario-pole.png" />
 					<h1 class="header__text-box">Video Game Database</h1>
-					<img class="foreground__image right" src="../static/assets/luigi-jump.png" />
 				</div>
 			</div>
 		</div>
