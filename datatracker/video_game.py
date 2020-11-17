@@ -40,8 +40,12 @@ def chart_main():
 
 @bp.route('/chartdetails')
 def chart_details():
-    result = api_request.request_console_game("LEGO Marvel Super Heroes")
-    return render_template('video_game/chart_detailsview.html', table_data=result)
+    name = request.args.get('name', default="", type=str)
+    print(name)
+    if name == "":
+        return render_template('video_game/search.html')
+    result = api_request.request_console_game(name)
+    return render_template('video_game/chart_detailsview.html', table_data=result, title=name)
 
 
 @bp.route('/search')
