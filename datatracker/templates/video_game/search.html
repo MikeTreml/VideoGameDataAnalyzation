@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% block header %}
-<form method="post">
-    			<label for="search">Enter a Title</label>
-    			<input name="search" id="search" value="{{ request.form['search'] }}" required>
-    			<input type="submit" value="Submit">
-			 </form>
+
 {% endblock %}
 {% block content %}
 <div class="details">
@@ -68,6 +64,7 @@ function mOver(obj){
 	$("#details__platform-grid").html($(obj).find('.platform-data').text());
     $("#details__rank-grid").html($(obj).find('.rank-data').text());
     $("#details__globals-grid").html($(obj).find('.globalsales-data').text());
+    $("#details__title-grid").attr("href", "/chartdetails?title="+'.name-data').text());
 };
 function mOut(obj){
 }
