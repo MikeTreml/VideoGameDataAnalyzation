@@ -11,6 +11,7 @@ let data_na = [];
 let data_eu = [];
 let data_other = [];
 let data_jp = [];
+let title = '{{ title }} sold on consoles';
 {% for console in table_data %}
 	labels.push('{{ console[0] }}');
 	data_global.push({{ console[5] }});
@@ -49,7 +50,7 @@ var barChartData = {
 				options: {
 					title: {
 						display: true,
-						text: 'Video Games sold on consoles'
+						text: title
 					},
 					tooltips: {
 						mode: 'index',
