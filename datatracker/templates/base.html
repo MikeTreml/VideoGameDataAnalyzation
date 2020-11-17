@@ -13,9 +13,8 @@
 	<div class="container">
 		<header class="header">
 			<img src="../static/assets/logo.png" alt=" logo" class="logo">
-
 			<form action="/search" value="" class="search">
-				<input type="text" class="search__input" placeholder="Search games">
+				<input name="search" id="search" type="text" class="search" value="{{ 'search' }}" placeholder="Search games">
 				<button class="search__button">
 					<svg class="search__icon">
 						<use xlink:href="static/assets/sprite.svg#icon-magnifying-glass"></use>
