@@ -126,15 +126,15 @@ def process_filter(dict):
                    "XB": {"naSales": 0, "euSales": 0, "jpSales": 0, "otherSales": 0, "globalSales": 0},
                    "XOne": {"naSales": 0, "euSales": 0, "jpSales": 0, "otherSales": 0, "globalSales": 0}}
     for item in dict:
-        console_dict[item.platform]["naSales"] += item.naSales
-        console_dict[item.platform]["euSales"] += item.euSales
-        console_dict[item.platform]["jpSales"] += item.jpSales
-        console_dict[item.platform]["otherSales"] += item.otherSales
-        console_dict[item.platform]["globalSales"] += item.globalSales
+        console_dict[item.platform]["naSales"] += round(item.naSales, 2)
+        console_dict[item.platform]["euSales"] += round(item.euSales, 2)
+        console_dict[item.platform]["jpSales"] += round(item.jpSales, 2)
+        console_dict[item.platform]["otherSales"] += round(item.otherSales, 2)
+        console_dict[item.platform]["globalSales"] += round(item.globalSales, 2)
 
     for console, sales in console_dict.items():
             if sales["globalSales"] > 0:
-                result = [console, sales["naSales"], sales["euSales"], sales["jpSales"], sales["otherSales"], sales["globalSales"]]
+                result = [console, round(sales["naSales"], 2), round(sales["euSales"], 2), round(sales["jpSales"], 2), round(sales["otherSales"], 2), round(sales["globalSales"], 2)]
                 results.append(result)
 
     return(results)
