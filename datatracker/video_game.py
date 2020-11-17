@@ -44,14 +44,10 @@ def chart_details():
     return render_template('video_game/chart_detailsview.html', table_data=result)
 
 
-@bp.route('/search', methods=('GET', 'POST'))
+@bp.route('/search')
 def search():
-
-    if request.method == 'POST':
-        search = request.form['search']
-        result = api_request.request_search_string(search)
-        return render_template('video_game/search.html', table_data=result)
-    else:
-        result = api_request.request_search_string("space")
-        return render_template('video_game/search.html', table_data=result)
-
+    search_string = request.args.get('search', default = "", type = str)
+    if search_string == "":
+        return render_template('video_game/search.html')
+    result = api_request.request_search_string(search_string)
+    return render_template('video_game/search.html', table_data=result)
