@@ -1,4 +1,4 @@
-.movie-list {
+.game-list {
   &__content {
     background-color: var(--color-grey-dark-2);
     box-shadow: 0 2rem 4rem rgba(var(--shadow-dark), .2);
@@ -40,7 +40,7 @@
     }
   }
 }
-#movieListHeading {
+#gameListHeading {
   cursor: pointer;
 
 }

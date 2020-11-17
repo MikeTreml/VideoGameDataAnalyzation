@@ -317,25 +317,25 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); }
 
-.movie-list__content {
+.game-list__content {
   background-color: var(--color-grey-dark-2);
   box-shadow: 0 2rem 4rem rgba(var(--shadow-dark), 0.2);
   border-radius: 3px;
   display: table;
   overflow: hidden; }
 
-.movie-list__browser {
+.game-list__browser {
   width: 30%;
   display: table-cell;
   padding: 3rem 5rem; }
 
-.movie-list__create {
+.game-list__create {
   width: 30%;
   vertical-align: middle;
   padding: 1rem 1rem;
   left: 1.5rem; }
 
-.movie-list__details {
+.game-list__details {
   cursor: move;
   position: fixed;
   top: 50vh;
@@ -346,11 +346,11 @@ body {
   background-color: var(--color-grey-light-1);
   border-radius: 20px;
   box-shadow: 0 10px 40px var(--color-grey-dark-2), 0 0 0 20px var(--color-grey-light-1); }
-  .movie-list__details--poster {
+  .game-list__details--poster {
     position: relative;
     width: 60%; }
 
-#movieListHeading {
+#gameListHeading {
   cursor: pointer; }
 
 #draggable {
