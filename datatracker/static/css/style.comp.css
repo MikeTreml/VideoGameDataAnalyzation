@@ -383,6 +383,8 @@ body {
     grid-area: rank; }
   .grid-container .details__globals-grid {
     grid-area: globals; }
+  .grid-container .search__button {
+    grid-area: btn; }
   .grid-container > div {
     background-color: rgba(var(--color-grey-light-1), 0.6);
     font-size: 1rem;

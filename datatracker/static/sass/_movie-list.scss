@@ -68,12 +68,12 @@
   .details__platform-grid{grid-area: platform;}
   .details__rank-grid{grid-area: rank;}
   .details__globals-grid{grid-area: globals;}
+  .search__button{grid-area: btn}
   
   grid-template-areas:
     "title title title title title title"
     "year year genre genre rank rank"
     "publisher publisher platform platform globals globals";
-
   gap: .4rem .4rem;
   
   & > div{
