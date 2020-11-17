@@ -44,8 +44,6 @@ def request_search_string(searchstring):
                                         str(x.year) + " " + str(x.rank) + " " + x.genre.lower() + " " +
                                         x.publisher.lower(), force_ascii=True, full_process=True)
         if save >= 70:
-            print(str(save) + " " + x.name + " " + x.platform + " " + str(x.year) + " " + str(
-                x.rank) + " " + x.genre + " " + x.publisher)
             if save >= top:
                 result.insert(1, x)
                 top = save
