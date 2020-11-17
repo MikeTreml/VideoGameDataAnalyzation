@@ -7,7 +7,7 @@
 	<div class="grid-container game-list__details" id="draggable">
 		<div class="details__title-grid">
 			<h3 class="header-tertiary-">TITLE</h3>
-			<a class="btn-inline" href="/chartdetails" id="details__title-grid">Title</a>
+			<a class="" href="temp" id="details__title-grid">Title</a>
 		</div>
 		<div class="details__year-grid">
 			<h3 class="header-tertiary-">YEAR</h3>
@@ -45,7 +45,7 @@
 
 <table><tbody id="gameData"><tr><th hidden>ID</th><th>Title</th><th >Rank</th><th>Platform</th><th >Year</th><th hidden>genre</th><th hidden>Publisher</th><th hidden>NA Sales</th><th hidden>EU Sales</th><th hidden>JP Sales</th><th hidden>Other Sales</th><th hidden>Global Sales</th>
 {% for item in table_data %}
-<tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="ID-data" hidden>{{item._id}}</td><td class="name-data">{{ item.name }}</td><td class="rank-data" >{{ item.rank }}</td><td class="platform-data">{{ item.platform }}</td><td class="year-data" >{{ item.year }}</td><td class="genre-data" hidden>{{ item.genre }}</td><td class="publisher-data" hidden>{{ item.publisher }}</td><td class="nasales-data" hidden>{{ item.naSales }}</td><td class="eusales-data" hidden>{{ item.euSales }}</td><td class="jpsales-data" hidden>{{ item.jpSales }}</td><td class="othersales-data" hidden>{{ item.otherSales }}</td><td class="globalsales-data" hidden>{{ item.globalSales }}</td></tr>
+	<tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="ID-data" hidden>{{item._id}}</td><td class="name-data"><a href="/chartdetails?name={{ item.name }}" >{{ item.name }}</a></td><td class="rank-data" >{{ item.rank }}</td><td class="platform-data">{{ item.platform }}</td><td class="year-data" >{{ item.year }}</td><td class="genre-data" hidden>{{ item.genre }}</td><td class="publisher-data" hidden>{{ item.publisher }}</td><td class="nasales-data" hidden>{{ item.naSales }}</td><td class="eusales-data" hidden>{{ item.euSales }}</td><td class="jpsales-data" hidden>{{ item.jpSales }}</td><td class="othersales-data" hidden>{{ item.otherSales }}</td><td class="globalsales-data" hidden>{{ item.globalSales }}</td></tr></tbody>
 {% endfor %}
   </tbody></table>
 {% endblock %}
@@ -56,16 +56,6 @@
 $( function() {
     $( "#draggable" ).draggable();
 });
-function mOver(obj){  
-	$("#details__title-grid").html($(obj).find('.name-data').text());
-	$("#details__year-grid").html($(obj).find('.year-data').text());
-	$("#details__publisher-grid").html($(obj).find('.publisher-data').text());
-    $("#details__genre-grid").html($(obj).find('.genre-data').text());
-	$("#details__platform-grid").html($(obj).find('.platform-data').text());
-    $("#details__rank-grid").html($(obj).find('.rank-data').text());
-    $("#details__globals-grid").html($(obj).find('.globalsales-data').text());
-    $("#details__title-grid").attr("href", "/chartdetails?title="+'.name-data').text());
-};
-function mOut(obj){
-}
+
+
 </script>
