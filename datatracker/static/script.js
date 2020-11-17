@@ -72,3 +72,18 @@ function showSlides2() {
   
     setTimeout(showSlides5, 6000); // Change image every 2 seconds
   }
+
+  $( function() {
+    $( "#draggable" ).draggable();
+});
+function mOver(obj){  
+	$("#details__title-grid").html($(obj).find('.name-data').text());
+	$("#details__year-grid").html($(obj).find('.year-data').text());
+	$("#details__publisher-grid").html($(obj).find('.publisher-data').text());
+    $("#details__genre-grid").html($(obj).find('.genre-data').text());
+	$("#details__platform-grid").html($(obj).find('.platform-data').text());
+    $("#details__rank-grid").html($(obj).find('.rank-data').text());
+    $("#details__globals-grid").html($(obj).find('.globalsales-data').text());
+};
+function mOut(obj){
+}
